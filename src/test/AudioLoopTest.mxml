@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" applicationComplete="init()">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		
+		private var _p1 : MP3PitchHermitInterpolate;
+		private var _p2 : MP3PitchLinearInterpolate;
+		
+		private function init() : void
+		{
+			_p1 = new MP3PitchHermitInterpolate( 'test.mp3' );
+			_p2 = new MP3PitchLinearInterpolate( 'test.mp3' );
+		}	
+		
+	</fx:Script>
+	<s:Group horizontalCenter="0" verticalCenter="0">
+		<s:layout>
+			<s:VerticalLayout />
+		</s:layout>
+		<s:Label text="Hermite interpolate" />
+		<s:Group>
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<s:Button label="PLAY" id="play1" click="_p1.start(); stop1.visible = true; stop1.includeInLayout = true; play1.visible = false; play1.includeInLayout = false;"/>
+			<s:Button label="STOP" id="stop1" click="_p1.stop(); play1.visible = true; play1.includeInLayout = true; stop1.visible = false; stop1.includeInLayout = false;" visible="false" includeInLayout="false" />
+			<s:HSlider  width="250" id="rate1" minimum="0" maximum="3" value="1" stepSize="0.01" change="_p1.rate = rate1.value" />
+		</s:Group>
+		<s:Label text="Linear interpolate" />
+		<s:Group>
+			<s:layout>
+				<s:HorizontalLayout />
+			</s:layout>
+			<s:Button label="PLAY" id="play2" click="_p2.start(); stop2.visible = true; stop2.includeInLayout = true; play2.visible = false; play2.includeInLayout = false;" />
+			<s:Button label="STOP" id="stop2" click="_p2.stop();play2.visible = true; play2.includeInLayout = true; stop2.visible = false; stop2.includeInLayout = false;"  visible="false" includeInLayout="false" />
+			<s:HSlider  width="250" id="rate2" minimum="0" maximum="3" value="1" stepSize="0.01" change="_p2.rate = rate2.value" />
+		</s:Group>
+	</s:Group>
+	
+</s:Application>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library:DraggableRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						   xmlns:s="library://ns.adobe.com/flex/spark" 
+						   xmlns:looperman="components.library.looperman.*"
+						   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:library="components.library.*"
+						   doubleClickEnabled="true" doubleClick="onDoubleClick(event)"
+						   click="onClick(event)" toolTipCreate="onToolTipCreate( event )" removedFromStage="removed()" toolTip="zz">
+	<fx:Script source="sampleItemRenderer.as" />
+	<library:layout>
+		<s:VerticalLayout gap="0"/>
+	</library:layout>
+	<s:Group id="content" width="100%">
+		<s:layout>
+			<s:HorizontalLayout verticalAlign="middle" paddingLeft="5"/>
+		</s:layout>
+		<library:PlayButton id="playButton"/>
+		<mx:Label id="sampleName" width="186"/>
+		<mx:Label id="sampleDuration" textAlign="right"/>
+	</s:Group>
+	<library:PlayerSeekBar width="100%"  id="seekBar" includeInLayout="false" visible="false"/>
+</library:DraggableRenderer>
